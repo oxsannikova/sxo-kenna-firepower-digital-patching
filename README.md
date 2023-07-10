@@ -41,24 +41,24 @@ Target Group: `Default TargetGroup`
 
 ## Configuration
 
-#. Install the workflow from GitHub repository
-#. Add your Kenna API token to the `API Token` local variable (or, if you have an API key in a global variable already, set the local variable to the global’s value using the `Fetch Global Variables` group at the beginning of the workflow)
-#. Set the `Kenna Instance URL` local variable to the URL of your Kenna instance (for example: `customer.kennasecurity.com`)
-#. Set the `Risk Meter Group ID` local variable to the ID of the risk meter group you want the workflow to process. You can get this by viewing the group in your Kenna console and looking at the page URL. The group ID should be after `search_id=`. For example, in this URL the group ID is 123456: `/explore?search_id=123456&name=....`
-#. Set the `Risk Score Threshold` local variable to the minimum risk score you want the workflow to process. Anything with a risk score less than this value will be ignored
-#. Set the `FMC Domain UUID`, `FMC Device ID` and `FMC Policy ID` local variables to configure FMC digital patching capability
-#. Set the `ServiceNow User ID` local variable to the username you want incidents opened as. This can either match the username in your `ServiceNow Account Key` or, if the account has the appropriate permissions, can be a different user
-#. (Optional) Update the `Ticket Limit` local variable with the maximum number of ServiceNow tickets you want the workflow to create per execution
-#. By default, this workflow will not run automatically. [Click here](https://ciscosecurity.github.io/sxo-05-security-workflows/schedules/) to learn about scheduling it to run on its own
+1. Install the workflow from GitHub repository
+1. Add your Kenna API token to the `API Token` local variable (or, if you have an API key in a global variable already, set the local variable to the global’s value using the `Fetch Global Variables` group at the beginning of the workflow)
+1. Set the `Kenna Instance URL` local variable to the URL of your Kenna instance (for example: `customer.kennasecurity.com`)
+1. Set the `Risk Meter Group ID` local variable to the ID of the risk meter group you want the workflow to process. You can get this by viewing the group in your Kenna console and looking at the page URL. The group ID should be after `search_id=`. For example, in this URL the group ID is 123456: `/explore?search_id=123456&name=....`
+1. Set the `Risk Score Threshold` local variable to the minimum risk score you want the workflow to process. Anything with a risk score less than this value will be ignored
+1. Set the `FMC Domain UUID`, `FMC Device ID` and `FMC Policy ID` local variables to configure FMC digital patching capability
+1. Set the `ServiceNow User ID` local variable to the username you want incidents opened as. This can either match the username in your `ServiceNow Account Key` or, if the account has the appropriate permissions, can be a different user
+1. (Optional) Update the `Ticket Limit` local variable with the maximum number of ServiceNow tickets you want the workflow to create per execution
+1. By default, this workflow will not run automatically. [Click here](https://ciscosecurity.github.io/sxo-05-security-workflows/schedules/) to learn about scheduling it to run on its own
 
 ## Usage
 
 ### Workflow steps
 
-#.    Make sure the required inputs were provided
-#.    Fetch global variables
-#.    Get a list of assets for the risk meter group and read them to a table
-#.    Check if assets were found:
+1.    Make sure the required inputs were provided
+1.    Fetch global variables
+1.    Get a list of assets for the risk meter group and read them to a table
+1.    Check if assets were found:
 - If not, end the workflow
 - If so, loop through each asset:
     - If the ticket limit has been reached, end the workflow
