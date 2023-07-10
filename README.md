@@ -31,6 +31,7 @@ Target Group: `Default TargetGroup`
 | CTR_API | HTTP Endpoint | _Protocol:_ `HTTPS`<br />_Host:_ `visibility.amp.cisco.com`<br />_Path:_ `/iroh` | None | Created by default |
 | Kenna_Target | HTTP Endpoint | _Protocol:_ `HTTPS`<br />_Host:_ `api.kennasecurity.com`<br />_Path:_ None | None |  |
 | ServiceNow | HTTP Endpoint | _Protocol:_ `HTTPS`<br />_Host:_ `<instance>.service-now.com`<br />_Path:_ /api | ServiceNow_Credentials | Be sure to use your instance URL |
+| SXO Webhook Target | HTTP Endpoint | _Protocol:_ `HTTPS`<br />_Host:_ `securex-ao.us.security.cisco.com` <br />_Path:_ `/webhooks/`| None | Refer to [documentation](https://ciscosecurity.github.io/sxo-05-security-workflows/webhooks) for more information about configuring webhooks |
 
 ### Account Keys
 
@@ -41,7 +42,14 @@ Target Group: `Default TargetGroup`
 
 ## Configuration
 
-1. Install the workflow from GitHub repository
+### Sub-workflow configuration
+
+1. Install the workflow from GitHub repository. The main workflow and sub-workflow will be installed into your SecureX Orchestration environment.
+1. Open sub-workflow `FMC Rules Override with Approval Request`.
+1. Configure the workflow with webhook trigger according to [documentation](https://ciscosecurity.github.io/sxo-05-security-workflows/webhooks).
+
+### Main workflow configuration
+
 1. Add your Kenna API token to the `API Token` local variable (or, if you have an API key in a global variable already, set the local variable to the global’s value using the `Fetch Global Variables` group at the beginning of the workflow)
 1. Set the `Kenna Instance URL` local variable to the URL of your Kenna instance (for example: `customer.kennasecurity.com`)
 1. Set the `Risk Meter Group ID` local variable to the ID of the risk meter group you want the workflow to process. You can get this by viewing the group in your Kenna console and looking at the page URL. The group ID should be after `search_id=`. For example, in this URL the group ID is 123456: `/explore?search_id=123456&name=....`
