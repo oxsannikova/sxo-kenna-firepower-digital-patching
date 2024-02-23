@@ -21,7 +21,6 @@ This workflow pulls discovered critical vulnerabilities for critical assets with
         ServiceNow - Create Incident (CiscoSecurity_Atomics)
         Service Now - Add Work Note to Incident (CiscoSecurity_Atomics)
 * The targets and account keys listed at the bottom of the page
-    ServiceNow
 
 ### Targets
 Target Group: `Default TargetGroup`
